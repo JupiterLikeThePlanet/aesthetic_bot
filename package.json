@@ -27,3 +27,7 @@
     "twit": "^2.2.9"
   }
 }
+
+
+//"scripts": {
+////    "start": "node index.js"
