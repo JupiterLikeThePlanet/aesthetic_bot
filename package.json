@@ -1,0 +1,27 @@
+{
+  "name": "aesthetic_bot",
+  "version": "1.0.0",
+  "description": "A Vaporwave Twitter Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JupiterLikeThePlanet/aesthetic_bot.git"
+  },
+  "keywords": [
+    "vaporwave",
+    "aesthetic"
+  ],
+  "author": "Jupiter Baudot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JupiterLikeThePlanet/aesthetic_bot/issues"
+  },
+  "homepage": "https://github.com/JupiterLikeThePlanet/aesthetic_bot#readme",
+  "dependencies": {
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.9"
+  }
+}
