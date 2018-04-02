@@ -64,6 +64,7 @@ var secondPhraseArray = [ "Sublimated",
     "Drive",
     "Nexus",
     "lonely",
+    " s a d ",
     "Crystal",
     "nobody",
     "a n y w h e r e",
@@ -152,13 +153,15 @@ var thirdPhraseArray = [
     "bot",
     ".com",
     "-scape",
+    "b o i",
     "Nights",
     "Futures",
     "でした",
     "最高で",
     "95",
     "84",
-    "98"
+    "98",
+    "Club"
 
 ]
 

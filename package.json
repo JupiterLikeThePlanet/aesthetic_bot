@@ -2,7 +2,7 @@
   "name": "aesthetic_bot",
   "version": "1.0.0",
   "description": "A Vaporwave Twitter Bot",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
@@ -26,4 +26,3 @@
     "twit": "^2.2.9"
   }
 }
-
