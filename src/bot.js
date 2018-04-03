@@ -56,6 +56,7 @@ Bot.retweet  = function (params, callback) {
     self.twit.get('search/tweets', params, searchedData)
 };
 
+Bot.retweet
 
 
 var firstPhraseArray = [
