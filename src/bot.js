@@ -1,19 +1,22 @@
-var Twit = require("twit");
-var TwitterBot = require("node-twitterbot").TwitterBot;
-
-
-
-var Bot = new TwitterBot({
-    consumer_key: process.env.BOT_CONSUMER_KEY,
-    consumer_secret: process.env.BOT_CONSUMER_SECRET,
-    access_token: process.env.BOT_ACCESS_TOKEN,
-    access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
-});
+// var Twit = require("twit");
+// var TwitterBot = require("node-twitterbot").TwitterBot;
+//
+//
+//
+// var Bot = new TwitterBot({
+//     consumer_key: process.env.BOT_CONSUMER_KEY,
+//     consumer_secret: process.env.BOT_CONSUMER_SECRET,
+//     access_token: process.env.BOT_ACCESS_TOKEN,
+//     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
+// });
 
 
 var firstPhraseArray = [
     "Yung",
     "シ",
+    "Melt",
+    "i n t e r",
+    "I N T R A",
     "行チし",
     "ズ意の",
     "媛へゑ",
@@ -24,13 +27,13 @@ var firstPhraseArray = [
     "Future",
     "V i r t u a l",
     "Macro",
+    "Aquatic",
     "Holographic",
     "V I S U A L",
     "PC",
     "Gradient",
     "Luxury",
     "Saint",
-    "Cruise",
     "Power",
     "Night",
     "u n t i t l e d",
@@ -43,6 +46,7 @@ var firstPhraseArray = [
     "Dark",
     "__",
     "//",
+    "Live",
     "Electric",
     "Giga",
     "Nostalgic",
@@ -60,13 +64,39 @@ var firstPhraseArray = [
     "TE▲M",
     "Waking",
     "s l o w",
-    "H Δ C K"
+    "L A T E",
+    "M I N D",
+    "Full",
+    "Double",
+    "Twin",
+    "High",
+    "Midnight",
+    "D E S O L A T E",
+    "S T A R",
+    "Digital",
+    "Cool",
+    "Distorted",
+    "Eternal",
+    "Contemporary",
+    "Sublime"
 ]
 
 
-var secondPhraseArray = ["Sublime",
+var secondPhraseArray = [
     "95",
+    "Terminal",
     "VaͥƤoͣrͫ",
+    "Trash",
+    "Fuji",
+    "G A M E",
+    " d e a t h ",
+    "Duality",
+    "Cruise",
+    "Time",
+    "d a t a",
+    "p a r a d i s e",
+    "CITY",
+    "Quest",
     "T W I L I G H T",
     "Wake",
     "84",
@@ -74,19 +104,27 @@ var secondPhraseArray = ["Sublime",
     "V|H|S",
     "H O N G K O N G",
     "Ecstasy",
+    "Mystique",
+    "b e a c h",
     "Beta",
     "ZENITH",
     "LEISURE",
+    "H Δ C K",
     "Mall",
+    "Cloud",
     "T I M E",
     "Disk",
     "Drive",
     "Nexus",
+    "Insecurity",
+    "Vogue",
+    "Obsession",
     "G0D",
     "lonely",
     " s a d ",
     "Crystal",
     "nobody",
+    "Messenger",
     "Liquid",
     "Television",
     "a n y w h e r e",
@@ -96,6 +134,7 @@ var secondPhraseArray = ["Sublime",
     "8-Bit",
     "d e p r e s s i o n",
     "Zeitgeist",
+    "Vision",
     "Byte",
     "Windows",
     "Continuum",
@@ -156,7 +195,13 @@ var secondPhraseArray = ["Sublime",
     "C A P I T A L I S T",
     "T O K Y O",
     "☯TEK☯",
-    "◤VαpØℝ◢"
+    "◤VαpØℝ◢",
+    "m o o d",
+    "A L O N E",
+    "Temptation",
+    "O A S I S",
+    "bit",
+    "Beijing"
 
 
 ];
@@ -165,12 +210,14 @@ var thirdPhraseArray = [
     "行チし",
     "ズ意の",
     "Pr0",
+    "C0RE",
     "vibez",
     "88",
     "99",
     "u n i t",
     ".txt",
     "w a v e",
+    "s c a n",
     ".exe",
     ".env",
     "SQUΛD",
@@ -198,6 +245,7 @@ var thirdPhraseArray = [
     "でした",
     "最高で",
     ".biz",
+    "n e t",
     "95",
     "84",
     "98",
@@ -205,6 +253,7 @@ var thirdPhraseArray = [
     "WINZIP",
     ".mp3",
     ".mp4",
+    "64",
     "o n l i n e"
 
 ]
@@ -252,4 +301,4 @@ function chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray) {
 var name = chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray)
 
 
-Bot.tweet(name);
+// Bot.tweet(name);

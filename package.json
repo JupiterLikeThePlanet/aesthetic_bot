@@ -4,7 +4,7 @@
   "description": "A Vaporwave Twitter Bot",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
