@@ -19,52 +19,89 @@ var params = {
     count: 3
 }
 
-var retweet_pool = []
+let retweet_pool = []
 
 // Bot.get('search/tweets', params,searchedData);
 
 function searchedData(err, data, response) {
     // console.log(data.statuses[0].text);
     // console.log(data.statuses);
-    retweet_pool = data.statuses.map(hash =>({id: hash.id}))
-    console.log(retweet_pool);
-    // console.log(response);
+    retweet_pool = data.statuses.map(hash =>({id: hash.id_str}))
+    console.log('*************************************');
+    console.log('retweet_pool');
+    // console.log(retweet_pool);
+    // console.log('retweet_pool[0]');
+    // console.log(retweet_pool[0].id);
+    return retweet_pool
+    console.log('*************************************');
 }
-///////////////////// Search Tweets /////////////////////////////
+
+// Bot.post('statuses/retweet/:id'), {
+//     id: '981234870499332101'
+// }, (err, data, response) => {
+//     if (err) {
+//         console.log("POST ERROR!")
+//         console.log(err)
+//     }else {
+//         // console.log(`${data.text} retweet success`)
+//     }
+// }
+
+// whatToRetweet = retweet_pool[0].id
+// console.log(whatToRetweet)
 
 
 ///////////////////// Search Tweets /////////////////////////////
 
-// function randIndex (arr) {
-//     var index = Math.floor(arr.length*Math.random());
-//     return arr[index];
-// };
 
-Bot.retweet  = function (params, callback) {
-    var self = this;
+///////////////////// ReTweet /////////////////////////////
+///works
 
-    Bot.get('search/tweets', params, function (err, reply) {
-    // self.twit.get('search/tweets', params, function (err, reply) {
-        if(err) return callback(err);
+// Bot.post('statuses/retweet/:id', {
+//     id: '981234870499332101'
+// }, (err, data, response) => {
+//     if (err) {
+//         console.log(err)
+//     } else {
+//         console.log(`${data.text} retweet success!`)
+//     }
+// })
+///////////////////////////////////////////////////////////
 
-        console.log("Here is the reply");
-        console.log(reply);
-        retweet_pool = reply.statuses.map(hash =>({id: hash.id}))
-        console.log("-----------------------------------")
+var retweet = function() {
+    var params = {
+        q: '#vaporwave',  // REQUIRED
+        result_type: 'recent',
+        lang: 'en'
+    }
+    // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
 
-        // var tweets = reply.statuses;
-
-        // var tweets = retweet_pool
-        // var randomTweet = randIndex(tweets);
-
-        Bot.post('statuses/retweet/:id', { id: retweet_pool[0].id });
-        // self.twit.post('statuses/retweet/:id', { id: randomTweet.id_str }, callback);
+    Bot.get('search/tweets', params, function(err, data) {
+        // if there no errors
+        if (!err) {
+            // grab ID of tweet to retweet
+            var retweetId = data.statuses[0].id_str;
+            // Tell TWITTER to retweet
+            Bot.post('statuses/retweet/:id', {
+                id: retweetId
+            }, function(err, data ,response) {
+                if (response) {
+                    console.log(`${data.text} Retweeted!!!`);
+                }
+                // if there was an error while tweeting
+                if (err) {
+                    console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                }
+            });
+        }
+        // if unable to Search a tweet
+        else {
+            console.log('Something went wrong while SEARCHING...');
+        }
     });
-};
+}
 
-Bot.retweet(params, searchedData)
-
-
+retweet();
 
 var firstPhraseArray = [
     "Yung",
@@ -369,44 +406,4 @@ var name = chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray)
 
 
 
-///////////////// sandbox //////////////////////////////
 
-
-// var retweet_pool = []
-//
-// // Bot.get('search/tweets', params,searchedData);
-//
-// function searchedData(err, data, response) {
-//
-//     retweet_pool = data.statuses.map(hash =>({id: hash.id}))
-//     console.log(retweet_pool);
-//
-//
-//     // Bot.retweet.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
-//
-//     Bot.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
-// }
-// ///////////////////// Search Tweets /////////////////////////////
-//
-//
-// ///////////////////// Retweets /////////////////////////////
-//
-// Bot.retweet  = function (params, callback) {
-//     console.log("retweet!")
-//     var self = this;
-//     console.log("---------------------------------")
-//     console.log(self.twit)
-//     console.log("---------------------------------")
-//     // self.twit.get('search/tweets', params, function (err, reply) {
-//     //     if(err) return callback(err);
-//     //
-//     //     var tweets = reply.statuses;
-//     //     // var randomTweet = randIndex(tweets);
-//     //
-//     //
-//     //     self.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
-//     // });
-//     Bot.get('search/tweets', params, callback)
-// };
-//
-// Bot.retweet(params, searchedData)
