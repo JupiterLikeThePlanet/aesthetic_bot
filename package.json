@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A Vaporwave Twitter Bot",
   "main": "bot.js",
-
+  "scripts": {
+    "start": "node bot.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JupiterLikeThePlanet/aesthetic_bot.git"
