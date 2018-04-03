@@ -28,35 +28,42 @@ function searchedData(err, data, response) {
     // console.log(data.statuses);
     retweet_pool = data.statuses.map(hash =>({id: hash.id}))
     console.log(retweet_pool);
-    // console.log(retweet_pool[0].id);
-
-    // Bot.retweet.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
     // console.log(response);
-
-    self.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
 }
 ///////////////////// Search Tweets /////////////////////////////
 
 
-///////////////////// Retweets /////////////////////////////
+///////////////////// Search Tweets /////////////////////////////
+
+// function randIndex (arr) {
+//     var index = Math.floor(arr.length*Math.random());
+//     return arr[index];
+// };
 
 Bot.retweet  = function (params, callback) {
-    console.log("retweet!")
     var self = this;
 
+    Bot.get('search/tweets', params, function (err, reply) {
     // self.twit.get('search/tweets', params, function (err, reply) {
-    //     if(err) return callback(err);
-    //
-    //     var tweets = reply.statuses;
-    //     // var randomTweet = randIndex(tweets);
-    //
-    //
-    //     self.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
-    // });
-    self.twit.get('search/tweets', params, searchedData)
+        if(err) return callback(err);
+
+        console.log("Here is the reply");
+        console.log(reply);
+        retweet_pool = reply.statuses.map(hash =>({id: hash.id}))
+        console.log("-----------------------------------")
+
+        // var tweets = reply.statuses;
+
+        // var tweets = retweet_pool
+        // var randomTweet = randIndex(tweets);
+
+        Bot.post('statuses/retweet/:id', { id: retweet_pool[0].id });
+        // self.twit.post('statuses/retweet/:id', { id: randomTweet.id_str }, callback);
+    });
 };
 
-Bot.retweet
+Bot.retweet(params, searchedData)
+
 
 
 var firstPhraseArray = [
@@ -352,3 +359,54 @@ var name = chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray)
 
 
 // Bot.tweet(name);
+
+
+
+
+
+
+
+
+
+
+///////////////// sandbox //////////////////////////////
+
+
+// var retweet_pool = []
+//
+// // Bot.get('search/tweets', params,searchedData);
+//
+// function searchedData(err, data, response) {
+//
+//     retweet_pool = data.statuses.map(hash =>({id: hash.id}))
+//     console.log(retweet_pool);
+//
+//
+//     // Bot.retweet.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+//
+//     Bot.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+// }
+// ///////////////////// Search Tweets /////////////////////////////
+//
+//
+// ///////////////////// Retweets /////////////////////////////
+//
+// Bot.retweet  = function (params, callback) {
+//     console.log("retweet!")
+//     var self = this;
+//     console.log("---------------------------------")
+//     console.log(self.twit)
+//     console.log("---------------------------------")
+//     // self.twit.get('search/tweets', params, function (err, reply) {
+//     //     if(err) return callback(err);
+//     //
+//     //     var tweets = reply.statuses;
+//     //     // var randomTweet = randIndex(tweets);
+//     //
+//     //
+//     //     self.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+//     // });
+//     Bot.get('search/tweets', params, callback)
+// };
+//
+// Bot.retweet(params, searchedData)
