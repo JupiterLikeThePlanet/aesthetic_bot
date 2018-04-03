@@ -1,14 +1,61 @@
-// var Twit = require("twit");
-// var TwitterBot = require("node-twitterbot").TwitterBot;
-//
-//
-//
+var Twit = require("twit");
+var TwitterBot = require("node-twitterbot").TwitterBot;
+const config = require('./config')
+
+const Bot = new Twit(config)
+
 // var Bot = new TwitterBot({
-//     consumer_key: process.env.BOT_CONSUMER_KEY,
-//     consumer_secret: process.env.BOT_CONSUMER_SECRET,
-//     access_token: process.env.BOT_ACCESS_TOKEN,
-//     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
+//     // consumer_key: process.env.BOT_CONSUMER_KEY,
+//     // consumer_secret: process.env.BOT_CONSUMER_SECRET,
+//     // access_token: process.env.BOT_ACCESS_TOKEN,
+//     // access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 // });
+
+
+
+///////////////////// Search Tweets /////////////////////////////
+var params = {
+    q: 'vaporwave',
+    count: 3
+}
+
+var retweet_pool = []
+
+// Bot.get('search/tweets', params,searchedData);
+
+function searchedData(err, data, response) {
+    // console.log(data.statuses[0].text);
+    // console.log(data.statuses);
+    retweet_pool = data.statuses.map(hash =>({id: hash.id}))
+    console.log(retweet_pool);
+    // console.log(retweet_pool[0].id);
+
+    // Bot.retweet.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+    // console.log(response);
+
+    self.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+}
+///////////////////// Search Tweets /////////////////////////////
+
+
+///////////////////// Retweets /////////////////////////////
+
+Bot.retweet  = function (params, callback) {
+    console.log("retweet!")
+    var self = this;
+
+    // self.twit.get('search/tweets', params, function (err, reply) {
+    //     if(err) return callback(err);
+    //
+    //     var tweets = reply.statuses;
+    //     // var randomTweet = randIndex(tweets);
+    //
+    //
+    //     self.twit.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+    // });
+    self.twit.get('search/tweets', params, searchedData)
+};
+
 
 
 var firstPhraseArray = [
@@ -31,6 +78,7 @@ var firstPhraseArray = [
     "Holographic",
     "V I S U A L",
     "PC",
+    "d e e p",
     "Gradient",
     "Luxury",
     "Saint",
@@ -78,7 +126,8 @@ var firstPhraseArray = [
     "Distorted",
     "Eternal",
     "Contemporary",
-    "Sublime"
+    "Sublime",
+    "T E E N",
 ]
 
 
@@ -169,7 +218,6 @@ var secondPhraseArray = [
     "Floral",
     "E T H E R",
     "K E Y W O R D",
-    " p l u s ",
     " S Y S T E M ",
     " H O T L I N E ",
     "deluxe",
@@ -218,6 +266,7 @@ var thirdPhraseArray = [
     ".txt",
     "w a v e",
     "s c a n",
+    "98",
     ".exe",
     ".env",
     "SQUΛD",
@@ -248,13 +297,13 @@ var thirdPhraseArray = [
     "n e t",
     "95",
     "84",
-    "98",
     "Club",
     "WINZIP",
     ".mp3",
     ".mp4",
     "64",
-    "o n l i n e"
+    "o n l i n e",
+    " p l u s "
 
 ]
 
