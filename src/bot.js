@@ -26,6 +26,7 @@ function getGiphy(search_item) {
     var encodedSearchItem = encodeURIComponent(search_item);
 
     var requestURL = 'http://api.giphy.com/v1/gifs/search?q=' + encodedSearchItem + '&api_key=' + process.env.GIPHY_API
+    // var requestURL = 'http://api.giphy.com/v1/gifs/random?api_key=' + process.env.GIPHY_API + "&tag=" + encodedSearchItem
 
     const parameters = {
         url: requestURL,
@@ -35,22 +36,70 @@ function getGiphy(search_item) {
     request.get(parameters, (err, respone, body) => {
         body = JSON.parse(body)
         console.log("********************body************")
-        // var bodyDataLength = body.data.length
-        // var random = Math.random() * (bodyDataLength - 0) + 0
-        // var num = Math.floor(random)
+        var bodyDataLength = body.data.length
+        var random = Math.random() * (bodyDataLength - 0) + 0
+        var num = Math.floor(random)
         //
-        // var gif = body.data[num].bitly_url
-        console.log(body.data[0])
-        // tweet(gif)
+        var gif = body.data[num].bitly_url
+        tweet(gif)
     })
 }
 
+
+function getRandomGiphy(search_item) {
+    var encodedSearchItem = encodeURIComponent(search_item);
+
+    var requestURL = 'http://api.giphy.com/v1/gifs/random?api_key=' + process.env.GIPHY_API + "&tag=" + encodedSearchItem
+
+    const parameters = {
+        url: requestURL,
+        encoding: 'binary'
+    }
+
+    request.get(parameters, (err, respone, body) => {
+        body = JSON.parse(body)
+        let gif = body.data.bitly_gif_url
+        tweet(gif)
+    })
+}
+
+// getRandomGiphy("retrowave");
+
 // getGiphy("vaporwave")
 
-getGiphy("retrowave")
+// getGiphy("retrowave");
+//
+// getGiphy("80s");
+//
+// getGiphy("aesthetic");
+//
+// getGiphy("aesthetics");
+//
+// getGiphy("glitch");
+//
+getRandomGiphy("vhs");
 
 
+gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch", "vhs", "vhs positive", "vhspositive", "vaporwave aesthetics", "aesthetic anime", "aesthetic design", "vaporwave anime"]
 
+// const giphy = {
+//     baseURL: "https://api.giphy.com/v1/gifs/",
+//     key: "dc6zaTOxFJmzC",
+//     tag: "fail",
+//     type: "random",
+//     rating: "pg-13"
+// };
+//
+// let giphyURL = encodeURI(
+//     giphy.baseURL +
+//     giphy.type +
+//     "?api_key=" +
+//     giphy.key +
+//     "&tag=" +
+//     giphy.tag +
+//     "&rating=" +
+//     giphy.rating
+// );
 
 
 ///// TWITTER BOT ACTIONS /////////////
@@ -60,6 +109,7 @@ getGiphy("retrowave")
 
 //retweets anything with #vaporwave
 // retweetVaporwave.retweet()
+// add retrowave
 
 
 
