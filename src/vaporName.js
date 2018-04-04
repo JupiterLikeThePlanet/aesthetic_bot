@@ -198,8 +198,6 @@ var secondPhraseArray = [
     "O A S I S",
     "bit",
     "Beijing"
-
-
 ];
 
 var thirdPhraseArray = [
@@ -256,6 +254,17 @@ var thirdPhraseArray = [
 ]
 
 
+var fourthPhraseArray = [
+    "A pretty dope vaporwave name would be ",
+    "There should be a vaporwave arist called ",
+]
+
+var fifthPhraseArray = [
+    " is a pretty dope vaporwave name",
+    " is a fucking tight vaporwave name"
+]
+
+
 function chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray) {
 
     var vaporName = "";
@@ -263,6 +272,8 @@ function chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray) {
     var first = Math.floor(Math.random()*2)
 
     var third = Math.floor(Math.random()*2)
+
+    var tackOnFourth = Math.floor(Math.random()*2)
 
     if (first) {
         first = firstPhraseArray[Math.floor(Math.random() * firstPhraseArray.length)];
@@ -282,12 +293,30 @@ function chooseRandom(firstPhraseArray, secondPhraseArray, thirdPhraseArray) {
         let secondSecond = secondPhraseArray[Math.floor(Math.random() * secondPhraseArray.length)]
 
         vaporName = second + " " + secondSecond
+
+        if (tackOnFourth) {
+            fourth = fourthPhraseArray[Math.floor(Math.random() * fourthPhraseArray.length)]
+            vaporName = fourth + vaporName
+        }else{
+            fifth = fourthPhraseArray[Math.floor(Math.random() * fifthPhraseArray.length)]
+            vaporName = fifth + vaporName
+        }
+
         console.log(vaporName)
 
         return vaporName
     }else {
         // console.log(`{first} {second} {third}`)
         vaporName = first + " " + second + " " + third
+
+        if (tackOnFourth) {
+            fourth = fourthPhraseArray[Math.floor(Math.random() * fourthPhraseArray.length)]
+            vaporName = fourth + vaporName
+        }else{
+            fifth = fourthPhraseArray[Math.floor(Math.random() * fifthPhraseArray.length)]
+            vaporName = fifth + vaporName
+        }
+
         console.log(vaporName) // return `{first} {second} {third}`
         return vaporName
     }

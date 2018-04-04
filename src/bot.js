@@ -1,15 +1,13 @@
 var Twit = require("twit");
 var TwitterBot = require("node-twitterbot").TwitterBot;
 const config = require('./config')
-
 const vaporName = require('./vaporName')
 const retweetVaporwave = require('./retweetVaporwave')
 
 const Bot = new Twit(config)
 // const Bot = new TwitterBot(config)
 
-
-
+// FUNCTIONS /////////////////////////
 function tweet(txt) {
     Bot.post('statuses/update', {
         status: txt
@@ -22,9 +20,13 @@ function tweet(txt) {
 })
 }
 
+
+///// TWITTER BOT ACTIONS /////////////
+
+//tweets vaporwave names
 tweet(vaporName.name)
 
-
+//retweets anything with #vaporwave
 retweetVaporwave.retweet()
 
 
@@ -39,15 +41,15 @@ retweetVaporwave.retweet()
 
 
 ///////////////////// Search Tweets /////////////////////////////
-var params = {
-    q: 'vaporwave',
-    count: 3
-}
-
-let retweet_pool = []
+// var params = {
+//     q: 'vaporwave',
+//     count: 3
+// }
+//
+// let retweet_pool = []
 
 // GET TWEETS
-Bot.get('search/tweets', params,searchedData);
+// Bot.get('search/tweets', params,searchedData);
 
 // POST TWEETS
 // Bot.post('statuses/retweet/:id', {
@@ -60,18 +62,18 @@ Bot.get('search/tweets', params,searchedData);
 //     }
 // })
 
-function searchedData(err, data, response) {
-    // console.log(data.statuses[0].text);
-    // console.log(data.statuses);
-    retweet_pool = data.statuses.map(hash =>({id: hash.id_str}))
-    console.log('*************************************');
-    console.log('retweet_pool');
-    // console.log(retweet_pool);
-    // console.log('retweet_pool[0]');
-    // console.log(retweet_pool[0].id);
-    console.log(retweet_pool)
-    console.log('*************************************');
-}
+// function searchedData(err, data, response) {
+//     // console.log(data.statuses[0].text);
+//     // console.log(data.statuses);
+//     retweet_pool = data.statuses.map(hash =>({id: hash.id_str}))
+//     console.log('*************************************');
+//     console.log('retweet_pool');
+//     // console.log(retweet_pool);
+//     // console.log('retweet_pool[0]');
+//     // console.log(retweet_pool[0].id);
+//     console.log(retweet_pool)
+//     console.log('*************************************');
+// }
 
 // Bot.post('statuses/retweet/:id'), {
 //     id: '981234870499332101'
