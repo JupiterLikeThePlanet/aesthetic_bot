@@ -132,14 +132,40 @@ function getRandomGiphy() {
 ///// TWITTER BOT ACTIONS /////////////////////////////////////
 
 //tweets vaporwave names
-tweet(vaporName.name)
+// tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-retweetVaporwave.retweet()
+// retweetVaporwave.retweet()
 
 // grab a giphy
-giphy.getRandomGiphy()
+// giphy.getRandomGiphy()
 
+var tenSeconds = 10000
+var sixSeconds = 6000
+var eightSeconds = 8000
+
+function giphyScheduler(){
+    // var randomNumber = Math.floor(Math.random()*1000)
+    giphy.getRandomGiphy()
+}
+
+function retweetScheduler(){
+    // var randomNumber = Math.floor(Math.random()*1000)
+    retweetVaporwave.retweet()
+}
+
+function tweetScheduler(){
+    // var randomNumber = Math.floor(Math.random()*1000)
+    tweet(vaporName.name)
+}
+
+
+
+
+
+setInterval(giphyScheduler, eightSeconds)
+setInterval(retweetScheduler, tenSeconds)
+setInterval(tweetScheduler, sixSeconds)
 
 //// Try a tweetScheduler function wrapper
 //// https://dzone.com/articles/how-to-use-twitter-api-using-nodejs

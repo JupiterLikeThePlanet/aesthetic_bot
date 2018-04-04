@@ -369,5 +369,4 @@ module.exports = ({
     secondPhraseArray: secondPhraseArray,
     thirdPhraseArray: thirdPhraseArray,
     name: name
-
 });
