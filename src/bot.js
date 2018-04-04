@@ -66,8 +66,12 @@ function getRandomGiphy() {
 
     request.get(parameters, (err, respone, body) => {
         body = JSON.parse(body)
-        let gif = body.data.bitly_gif_url
-        tweet(gif)
+        console.log("********************body************")
+        console.log(body)
+        console.log("********************body.data************")
+        console.log(body.data)
+        // let gif = body.data.bitly_gif_url
+        // tweet(gif)
     })
 }
 
