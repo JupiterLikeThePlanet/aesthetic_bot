@@ -1,8 +1,10 @@
 var Twit = require("twit");
 var TwitterBot = require("node-twitterbot").TwitterBot;
-const config = require('./config')
-const vaporName = require('./vaporName')
-const retweetVaporwave = require('./retweetVaporwave')
+
+const request = require('request');
+const config = require('./config');
+const vaporName = require('./vaporName');
+const retweetVaporwave = require('./retweetVaporwave');
 
 const Bot = new Twit(config)
 // const Bot = new TwitterBot(config)
@@ -20,14 +22,44 @@ function tweet(txt) {
 })
 }
 
+function getGiphy(search_item) {
+    var encodedSearchItem = encodeURIComponent(search_item);
+
+    var requestURL = 'http://api.giphy.com/v1/gifs/search?q=' + encodedSearchItem + '&api_key=' + process.env.GIPHY_API
+
+    const parameters = {
+        url: requestURL,
+        encoding: 'binary'
+    }
+
+    request.get(parameters, (err, respone, body) => {
+        body = JSON.parse(body)
+        console.log("********************body************")
+        // var bodyDataLength = body.data.length
+        // var random = Math.random() * (bodyDataLength - 0) + 0
+        // var num = Math.floor(random)
+        //
+        // var gif = body.data[num].bitly_url
+        console.log(body.data[0])
+        // tweet(gif)
+    })
+}
+
+// getGiphy("vaporwave")
+
+getGiphy("retrowave")
+
+
+
+
 
 ///// TWITTER BOT ACTIONS /////////////
 
 //tweets vaporwave names
-tweet(vaporName.name)
+// tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-retweetVaporwave.retweet()
+// retweetVaporwave.retweet()
 
 
 
