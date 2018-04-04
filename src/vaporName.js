@@ -220,7 +220,8 @@ var secondPhraseArray = [
     "D E S T I N Y",
     "P A N O R A M A",
     "Dial",
-    "Tone"
+    "Tone",
+    "Dialtone"
 
 ];
 

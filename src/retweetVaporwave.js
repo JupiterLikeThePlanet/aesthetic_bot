@@ -6,7 +6,7 @@ const Bot = new Twit(config)
 var retweet = function() {
     // https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets   ||    https://dev.twitter.com/rest/reference/get/search/tweets
 
-    var rtArray = ["popular", "recent", "mixed"]
+    var rtArray = ["recent", "mixed"] //add popular?
     var rtLength = rtArray.length
     var random = Math.random() * (rtLength - 0) + 0
     var num = Math.floor(random)
