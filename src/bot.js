@@ -3,6 +3,7 @@ var TwitterBot = require("node-twitterbot").TwitterBot;
 const config = require('./config')
 
 const vaporName = require('./vaporName')
+const retweetVaporwave = require('./retweetVaporwave')
 
 const Bot = new Twit(config)
 // const Bot = new TwitterBot(config)
@@ -22,6 +23,12 @@ function tweet(txt) {
 }
 
 tweet(vaporName.name)
+
+
+retweetVaporwave.retweet()
+
+
+
 // var Bot = new TwitterBot({
 //     // consumer_key: process.env.BOT_CONSUMER_KEY,
 //     // consumer_secret: process.env.BOT_CONSUMER_SECRET,
@@ -40,7 +47,7 @@ var params = {
 let retweet_pool = []
 
 // GET TWEETS
-// Bot.get('search/tweets', params,searchedData);
+Bot.get('search/tweets', params,searchedData);
 
 // POST TWEETS
 // Bot.post('statuses/retweet/:id', {
@@ -62,7 +69,7 @@ function searchedData(err, data, response) {
     // console.log(retweet_pool);
     // console.log('retweet_pool[0]');
     // console.log(retweet_pool[0].id);
-    return retweet_pool
+    console.log(retweet_pool)
     console.log('*************************************');
 }
 
@@ -90,40 +97,40 @@ function searchedData(err, data, response) {
 
 ///////////////////////////////////////////////////////////
 
-var retweet = function() {
-    var params = {
-        q: '#vaporwave',  // REQUIRED
-        result_type: 'recent',
-        lang: 'en'
-    }
-    // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
+// var retweet = function() {
+//     var params = {
+//         q: '#vaporwave',  // REQUIRED
+//         result_type: 'recent',
+//         lang: 'en'
+//     }
+//     // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
+//
+//     Bot.get('search/tweets', params, function(err, data) {
+//         // if there no errors
+//         if (!err) {
+//             // grab ID of tweet to retweet
+//             var retweetId = data.statuses[0].id_str;
+//             // Tell TWITTER to retweet
+//             Bot.post('statuses/retweet/:id', {
+//                 id: retweetId
+//             }, function(err, data ,response) {
+//                 if (response) {
+//                     console.log(`${data.text} Retweeted!!!`);
+//                 }
+//                 // if there was an error while tweeting
+//                 if (err) {
+//                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
+//                 }
+//             });
+//         }
+//         // if unable to Search a tweet
+//         else {
+//             console.log('Something went wrong while SEARCHING...');
+//         }
+//     });
+// }
 
-    Bot.get('search/tweets', params, function(err, data) {
-        // if there no errors
-        if (!err) {
-            // grab ID of tweet to retweet
-            var retweetId = data.statuses[0].id_str;
-            // Tell TWITTER to retweet
-            Bot.post('statuses/retweet/:id', {
-                id: retweetId
-            }, function(err, data ,response) {
-                if (response) {
-                    console.log(`${data.text} Retweeted!!!`);
-                }
-                // if there was an error while tweeting
-                if (err) {
-                    console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                }
-            });
-        }
-        // if unable to Search a tweet
-        else {
-            console.log('Something went wrong while SEARCHING...');
-        }
-    });
-}
-
-retweet();
+// retweet();
 
 
 
