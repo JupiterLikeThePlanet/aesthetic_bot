@@ -135,10 +135,10 @@ function getRandomGiphy() {
 // tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-// retweetVaporwave.retweet()
+retweetVaporwave.retweet()
 
 // grab a giphy
-// giphy.getRandomGiphy()
+giphy.getRandomGiphy()
 
 var thirtyMinutes = 1800000
 var hourly = 3600000
@@ -164,10 +164,10 @@ function tweetScheduler(){
 
 
 
-setInterval(giphyScheduler, hourly);
+// setInterval(giphyScheduler, hourly);
 // setInterval(retweetScheduler, tenMinutes);
-setInterval(retweetScheduler, tenSeconds);
-setInterval(tweetScheduler, thirtyMinutes);
+// setInterval(retweetScheduler, tenSeconds);
+// setInterval(tweetScheduler, thirtyMinutes);
 
 //// Try a tweetScheduler function wrapper
 //// https://dzone.com/articles/how-to-use-twitter-api-using-nodejs
