@@ -47,7 +47,7 @@ function getGiphy(search_item) {
 
 
 function getRandomGiphy() {
-    var gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch", "vhs", "vhs positive", "vhspositive", "vaporwave aesthetics", "aesthetic anime", "aesthetic design", "vaporwave anime"]
+    var gifArray = ["vaporwave", "retrowave", "synthwave", "windows 95", "windows 98", "80s", "aesthetic", "aesthetics", "glitch", "vhs", "vhs positive", "vhspositive", "vaporwave aesthetics", "aesthetic anime", "aesthetic design", "vaporwave anime"]
     var gifArrayLength = gifArray.length
     var random = Math.random() * (gifArrayLength - 0) + 0
     var num = Math.floor(random)
@@ -66,10 +66,10 @@ function getRandomGiphy() {
 
     request.get(parameters, (err, respone, body) => {
         body = JSON.parse(body)
-        console.log("********************body************")
-        console.log(body)
-        console.log("********************body.data************")
-        console.log(body.data)
+        // console.log("********************body************")
+        // console.log(body)
+        // console.log("********************body.data************")
+        // console.log(body.data)
         let gif = body.data.bitly_gif_url
         tweet(gif)
     })
@@ -137,6 +137,9 @@ retweetVaporwave.retweet()
 
 getRandomGiphy()
 
+
+//// Try a tweetScheduler function wrapper
+//// https://dzone.com/articles/how-to-use-twitter-api-using-nodejs
 
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
