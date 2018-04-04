@@ -41,9 +41,18 @@ const Bot = new Twit(config)
 
 var retweet = function() {
     // https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets   ||    https://dev.twitter.com/rest/reference/get/search/tweets
+
+    var rtArray = ["popular", "recent", "mixed"]
+    var rtLength = rtArray.length
+    var random = Math.random() * (rtLength - 0) + 0
+    var num = Math.floor(random)
+    var rt = rtArray[num]
+
+    console.log(`Going with result type: ${rt}`)
+
     var params = {
         q: '#vaporwave',  // REQUIRED
-        result_type: 'mixed', //can also use 'recent'
+        result_type: rt, //can also use 'recent'
         lang: 'en'
     }
 
