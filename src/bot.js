@@ -140,9 +140,9 @@ function getRandomGiphy() {
 // grab a giphy
 // giphy.getRandomGiphy()
 
-var tenSeconds = 10000
-var sixSeconds = 6000
-var eightSeconds = 8000
+var thirtyMinutes = 1800000
+var hourly = 3600000
+var tenMinutes = 600000
 
 function giphyScheduler(){
     // var randomNumber = Math.floor(Math.random()*1000)
@@ -163,9 +163,9 @@ function tweetScheduler(){
 
 
 
-// setInterval(giphyScheduler, eightSeconds)
-// setInterval(retweetScheduler, tenSeconds)
-// setInterval(tweetScheduler, sixSeconds)
+setInterval(giphyScheduler, hourly);
+setInterval(retweetScheduler, tenMinutes);
+setInterval(tweetScheduler, thirtyMinutes);
 
 //// Try a tweetScheduler function wrapper
 //// https://dzone.com/articles/how-to-use-twitter-api-using-nodejs
