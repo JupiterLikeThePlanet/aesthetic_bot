@@ -128,7 +128,7 @@ function getRandomGiphy() {
 tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-retweetVaporwave.retweet()
+// retweetVaporwave.retweet()
 // add retrowave
 
 getRandomGiphy()
