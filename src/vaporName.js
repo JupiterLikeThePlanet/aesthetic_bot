@@ -76,14 +76,27 @@ var firstPhraseArray = [
     "Contemporary",
     "Sublime",
     "T E E N",
+    "desperate",
+    "quality",
+    "e c o",
+    " e c c o ",
+    "Vinyl",
+    "M A N U A L",
+    "A N O N",
+    "Mr."
 ]
 
 
 var secondPhraseArray = [
     "95",
     "Terminal",
+    "Demand",
+    "F/U/N/K",
+    "I L L U S I O N",
     "VaͥƤoͣrͫ",
     "Trash",
+    "Ocean",
+    "a n o n y m o u s",
     "Fuji",
     "G A M E",
     " d e a t h ",
@@ -106,6 +119,8 @@ var secondPhraseArray = [
     "Beta",
     "ZENITH",
     "LEISURE",
+    "d o w n l o a d",
+    "l/o/a/d",
     "H Δ C K",
     "Mall",
     "Cloud",
@@ -197,7 +212,16 @@ var secondPhraseArray = [
     "Temptation",
     "O A S I S",
     "bit",
-    "Beijing"
+    "Beijing",
+    "Sea",
+    "Sound",
+    "Market",
+    "d r o n e",
+    "D E S T I N Y",
+    "P A N O R A M A",
+    "Dial",
+    "Tone"
+
 ];
 
 var thirdPhraseArray = [
@@ -206,6 +230,9 @@ var thirdPhraseArray = [
     "Pr0",
     "C0RE",
     "vibez",
+    "bae",
+    "Girls",
+    "REALM",
     "88",
     "99",
     "u n i t",
@@ -213,6 +240,7 @@ var thirdPhraseArray = [
     "w a v e",
     "s c a n",
     "98",
+    "Society",
     ".exe",
     ".env",
     "SQUΛD",
@@ -231,6 +259,10 @@ var thirdPhraseArray = [
     "bot",
     "tapes",
     ".com",
+    "inc.",
+    "ltd.",
+    "Incorporated",
+    "L I M I T E D",
     "-scape",
     "b o i",
     "Nights",
@@ -249,7 +281,8 @@ var thirdPhraseArray = [
     ".mp4",
     "64",
     "o n l i n e",
-    " p l u s "
+    " p l u s ",
+    "sphere"
 
 ]
 

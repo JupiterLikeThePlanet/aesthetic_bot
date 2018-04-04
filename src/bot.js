@@ -4,12 +4,15 @@ var TwitterBot = require("node-twitterbot").TwitterBot;
 const request = require('request');
 const config = require('./config');
 const vaporName = require('./vaporName');
+const giphy = require('./giphy');
 const retweetVaporwave = require('./retweetVaporwave');
 
 const Bot = new Twit(config)
 // const Bot = new TwitterBot(config)
 
 // FUNCTIONS /////////////////////////
+
+///note: maybe refactor into another file, call into other files.
 function tweet(txt) {
     Bot.post('statuses/update', {
         status: txt
@@ -19,7 +22,7 @@ function tweet(txt) {
         } else {
             console.log(`${data.text} tweeted!`)
     }
-})
+ })
 }
 
 function getGiphy(search_item) {
@@ -132,10 +135,10 @@ function getRandomGiphy() {
 // tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-retweetVaporwave.retweet()
+// retweetVaporwave.retweet()
 // add retrowave
 
-// getRandomGiphy()
+giphy.getRandomGiphy()
 
 
 //// Try a tweetScheduler function wrapper
@@ -169,7 +172,7 @@ retweetVaporwave.retweet()
 ////// Basic Actions //////////////////////////////////////////
 
 // GET TWEETS
-// Bot.get('search/tweets', params,searchedData);
+// Bot.get('search/tweets', params, searchedData);
 
 // POST TWEETS
 // Bot.post('statuses/retweet/:id', {
@@ -181,6 +184,15 @@ retweetVaporwave.retweet()
 //         console.log(`${data.text} retweet success!`)
 //     }
 // })
+
+// function searchedData(err, data, response) {
+//     // console.log(data.statuses[0].text);
+//     // console.log(data.statuses);
+//     var retweet_pool = []
+//     retweet_pool = data.statuses.map(hash =>({id: hash.id}))
+//     console.log(retweet_pool);
+//     Bot.post('statuses/retweet/:id', { id: retweet_pool[0].id }, callback);
+// }
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
