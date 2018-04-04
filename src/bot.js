@@ -143,6 +143,7 @@ function getRandomGiphy() {
 var thirtyMinutes = 1800000
 var hourly = 3600000
 var tenMinutes = 600000
+var tenSeconds = 10000
 
 function giphyScheduler(){
     // var randomNumber = Math.floor(Math.random()*1000)
@@ -164,7 +165,8 @@ function tweetScheduler(){
 
 
 setInterval(giphyScheduler, hourly);
-setInterval(retweetScheduler, tenMinutes);
+// setInterval(retweetScheduler, tenMinutes);
+setInterval(retweetScheduler, tenSeconds);
 setInterval(tweetScheduler, thirtyMinutes);
 
 //// Try a tweetScheduler function wrapper
