@@ -46,8 +46,16 @@ function getGiphy(search_item) {
 }
 
 
-function getRandomGiphy(search_item) {
-    var encodedSearchItem = encodeURIComponent(search_item);
+function getRandomGiphy() {
+    var gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch", "vhs", "vhs positive", "vhspositive", "vaporwave aesthetics", "aesthetic anime", "aesthetic design", "vaporwave anime"]
+    var gifArrayLength = gifArray.length
+    var random = Math.random() * (gifArrayLength - 0) + 0
+    var num = Math.floor(random)
+    var searchItem = gifArray[num]
+
+    console.log(searchItem)
+
+    var encodedSearchItem = encodeURIComponent(searchItem);
 
     var requestURL = 'http://api.giphy.com/v1/gifs/random?api_key=' + process.env.GIPHY_API + "&tag=" + encodedSearchItem
 
@@ -77,10 +85,21 @@ function getRandomGiphy(search_item) {
 //
 // getGiphy("glitch");
 //
-getRandomGiphy("vhs");
+
+//hourly
+// var minute = setInterval(getRandomGiphy, 1000 * 60 * 60)
+// var minute = setInterval(getRandomGiphy, 1000 * 10)
+// minute
+//
+// // var glitch = getGiphy("glitch")
+// var seconds = setInterval(getGiphy, 1000 * 10)
+// seconds
+
+// getRandomGiphy();
 
 
-gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch", "vhs", "vhs positive", "vhspositive", "vaporwave aesthetics", "aesthetic anime", "aesthetic design", "vaporwave anime"]
+
+// gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch", "vhs", "vhs positive", "vhspositive", "vaporwave aesthetics", "aesthetic anime", "aesthetic design", "vaporwave anime"]
 
 // const giphy = {
 //     baseURL: "https://api.giphy.com/v1/gifs/",
@@ -101,15 +120,24 @@ gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch"
 //     giphy.rating
 // );
 
-
-///// TWITTER BOT ACTIONS /////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+///// TWITTER BOT ACTIONS /////////////////////////////////////
 
 //tweets vaporwave names
-// tweet(vaporName.name)
+tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-// retweetVaporwave.retweet()
+retweetVaporwave.retweet()
 // add retrowave
+
+getRandomGiphy()
+
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
 
 
 
@@ -122,13 +150,16 @@ gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch"
 
 
 
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 ///////////////////// Search Tweets /////////////////////////////
 // var params = {
 //     q: 'vaporwave',
 //     count: 3
 // }
-//
-// let retweet_pool = []
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////// Basic Actions //////////////////////////////////////////
 
 // GET TWEETS
 // Bot.get('search/tweets', params,searchedData);
@@ -143,78 +174,11 @@ gifArray = ["vaporwave", "retrowave", "80s", "aesthetic", "aesthetics", "glitch"
 //         console.log(`${data.text} retweet success!`)
 //     }
 // })
-
-// function searchedData(err, data, response) {
-//     // console.log(data.statuses[0].text);
-//     // console.log(data.statuses);
-//     retweet_pool = data.statuses.map(hash =>({id: hash.id_str}))
-//     console.log('*************************************');
-//     console.log('retweet_pool');
-//     // console.log(retweet_pool);
-//     // console.log('retweet_pool[0]');
-//     // console.log(retweet_pool[0].id);
-//     console.log(retweet_pool)
-//     console.log('*************************************');
-// }
-
-// Bot.post('statuses/retweet/:id'), {
-//     id: '981234870499332101'
-// }, (err, data, response) => {
-//     if (err) {
-//         console.log("POST ERROR!")
-//         console.log(err)
-//     }else {
-//         // console.log(`${data.text} retweet success`)
-//     }
-// }
-
-// whatToRetweet = retweet_pool[0].id
-// console.log(whatToRetweet)
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
 
-///////////////////// Search Tweets /////////////////////////////
-
-
-///////////////////// ReTweet /////////////////////////////
-///works
-
-
-///////////////////////////////////////////////////////////
-
-// var retweet = function() {
-//     var params = {
-//         q: '#vaporwave',  // REQUIRED
-//         result_type: 'recent',
-//         lang: 'en'
-//     }
-//     // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
-//
-//     Bot.get('search/tweets', params, function(err, data) {
-//         // if there no errors
-//         if (!err) {
-//             // grab ID of tweet to retweet
-//             var retweetId = data.statuses[0].id_str;
-//             // Tell TWITTER to retweet
-//             Bot.post('statuses/retweet/:id', {
-//                 id: retweetId
-//             }, function(err, data ,response) {
-//                 if (response) {
-//                     console.log(`${data.text} Retweeted!!!`);
-//                 }
-//                 // if there was an error while tweeting
-//                 if (err) {
-//                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
-//                 }
-//             });
-//         }
-//         // if unable to Search a tweet
-//         else {
-//             console.log('Something went wrong while SEARCHING...');
-//         }
-//     });
-// }
-
-// retweet();
 
 
 
