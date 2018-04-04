@@ -70,8 +70,8 @@ function getRandomGiphy() {
         console.log(body)
         console.log("********************body.data************")
         console.log(body.data)
-        // let gif = body.data.bitly_gif_url
-        // tweet(gif)
+        let gif = body.data.bitly_gif_url
+        tweet(gif)
     })
 }
 
