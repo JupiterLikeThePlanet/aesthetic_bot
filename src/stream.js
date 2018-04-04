@@ -25,15 +25,27 @@ function followed(eventMsg){
 
 function tweetMessage(txt) {
 
-    var tweet = {
-        status: txt
+    //refactor this
+    if(txt !== '@AestheticBot95 s a d || b o y s love company. Thanks for the follow.' ) {
+        var tweet = {
+            status: txt
+        }
+    }else{
+        var tweet = {
+            status: "My //l o n e l y// world grows less //l o n e l y//"
+        }
     }
+
+
+
 
     Bot.post('statuses/update', tweet, tweeted)
 
     function tweeted(err, data, response) {
         if (err) {
             console.log("Something went wrong!");
+            console.log(err);
+            console.log("*********************************");
         }
         else {
             console.log("Voila It worked!");

@@ -40,12 +40,12 @@ const Bot = new Twit(config)
 // }
 
 var retweet = function() {
+    // https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets   ||    https://dev.twitter.com/rest/reference/get/search/tweets
     var params = {
         q: '#vaporwave',  // REQUIRED
-        result_type: 'recent',
+        result_type: 'mixed', //can also use 'recent'
         lang: 'en'
     }
-    // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
 
     Bot.get('search/tweets', params, function(err, data) {
         // if there no errors

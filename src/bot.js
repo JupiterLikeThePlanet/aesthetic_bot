@@ -129,13 +129,13 @@ function getRandomGiphy() {
 ///// TWITTER BOT ACTIONS /////////////////////////////////////
 
 //tweets vaporwave names
-tweet(vaporName.name)
+// tweet(vaporName.name)
 
 //retweets anything with #vaporwave
 retweetVaporwave.retweet()
 // add retrowave
 
-getRandomGiphy()
+// getRandomGiphy()
 
 
 //// Try a tweetScheduler function wrapper
