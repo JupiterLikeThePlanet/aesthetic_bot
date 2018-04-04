@@ -163,9 +163,9 @@ function tweetScheduler(){
 
 
 
-setInterval(giphyScheduler, eightSeconds)
-setInterval(retweetScheduler, tenSeconds)
-setInterval(tweetScheduler, sixSeconds)
+// setInterval(giphyScheduler, eightSeconds)
+// setInterval(retweetScheduler, tenSeconds)
+// setInterval(tweetScheduler, sixSeconds)
 
 //// Try a tweetScheduler function wrapper
 //// https://dzone.com/articles/how-to-use-twitter-api-using-nodejs
