@@ -1,6 +1,7 @@
 require("./src/bot.js")
 require("./src/stream.js")
 
+const redis = require('redis');
 const Twit = require('twit')
 const config = require('./src/config')
 const stream = require('./src/stream')

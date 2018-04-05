@@ -1,6 +1,7 @@
 var Twit = require("twit");
 var TwitterBot = require("node-twitterbot").TwitterBot;
 
+const redis = require('redis');
 const request = require('request');
 const config = require('./config');
 const vaporName = require('./vaporName');
@@ -135,10 +136,10 @@ function getRandomGiphy() {
 // tweet(vaporName.name)
 
 //retweets anything with #vaporwave
-retweetVaporwave.retweet()
+// retweetVaporwave.retweet()
 
 // grab a giphy
-giphy.getRandomGiphy()
+// giphy.getRandomGiphy()
 
 var thirtyMinutes = 1800000
 var hourly = 3600000
@@ -164,10 +165,11 @@ function tweetScheduler(){
 
 
 
-// setInterval(giphyScheduler, hourly);
-// setInterval(retweetScheduler, tenMinutes);
+setInterval(giphyScheduler, hourly);
+// setInterval(giphyScheduler, tenSeconds);
+setInterval(retweetScheduler, tenMinutes);
 // setInterval(retweetScheduler, tenSeconds);
-// setInterval(tweetScheduler, thirtyMinutes);
+setInterval(tweetScheduler, thirtyMinutes);
 
 //// Try a tweetScheduler function wrapper
 //// https://dzone.com/articles/how-to-use-twitter-api-using-nodejs
